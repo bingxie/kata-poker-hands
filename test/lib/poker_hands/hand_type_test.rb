@@ -29,4 +29,12 @@ class HandTypeTest < Minitest::Test
 
     refute type.flush?
   end
+
+  def test_check_straight_flush
+    cards = Card.parse_cards('2D 3D 4C 5D 6D')
+    type = HandType.new(cards)
+
+    assert_equal 'STRAIGHT_FLUSH', type.name
+    assert_equal 10, type.score
+  end
 end

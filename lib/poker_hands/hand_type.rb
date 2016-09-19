@@ -3,19 +3,27 @@
 class HandType
   include Comparable
 
+  attr_reader :name, :score
+
   def initialize(cards)
     @cards = cards
+    check_straight_flush
+  end
 
-    # @name = 'STRAIGHT_FLUSH'
-    # @score = 10
+  def <=>(other)
+    @score <=> other.score
   end
 
   # def <=>(other)
   #   self.score <=> other.score
   # end
 
-  # def check_straight_flush
-  # end
+  def check_straight_flush
+    straight? && flush?
+    @name = 'STRAIGHT_FLUSH'
+    @score = 10
+    @name.nil?
+  end
 
   # def check_four_of_a_kind
   # end
