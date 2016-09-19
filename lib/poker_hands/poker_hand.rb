@@ -14,7 +14,7 @@ class PokerHand
 
     return "White wins. - with #{other.hand_type.name}" if @hand_type < other.hand_type
 
-    if @hand_type = other.hand_type
+    if @hand_type == other.hand_type
       case @hand_type.name
       when 'STRAIGHT_FLUSH'
         compare_highest_card(highest_card, other.highest_card)

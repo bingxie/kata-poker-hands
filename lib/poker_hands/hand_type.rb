@@ -7,22 +7,18 @@ class HandType
 
   def initialize(cards)
     @cards = cards
-    check_straight_flush
+    check_straight_flush || check_high_card
   end
 
   def <=>(other)
     @score <=> other.score
   end
 
-  # def <=>(other)
-  #   self.score <=> other.score
-  # end
-
   def check_straight_flush
-    straight? && flush?
-    @name = 'STRAIGHT_FLUSH'
-    @score = 10
-    @name.nil?
+    if straight? && flush?
+      @score = 10
+      @name = 'STRAIGHT_FLUSH'
+    end
   end
 
   # def check_four_of_a_kind
@@ -36,6 +32,11 @@ class HandType
 
   # def check_straight
   # end
+
+  def check_high_card
+    @score = 0
+    @name = 'HIGH_CARD'
+  end
 
   def straight?
     values_str = Card::VALUES.join

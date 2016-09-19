@@ -31,10 +31,18 @@ class HandTypeTest < Minitest::Test
   end
 
   def test_check_straight_flush
-    cards = Card.parse_cards('2D 3D 4C 5D 6D')
+    cards = Card.parse_cards('2D 3D 4D 5D 6D')
     type = HandType.new(cards)
 
     assert_equal 'STRAIGHT_FLUSH', type.name
     assert_equal 10, type.score
+  end
+
+  def test_check_high_card
+    cards = Card.parse_cards('2H 4S 5D 6D 9H')
+    type = HandType.new(cards)
+
+    assert_equal 'HIGH_CARD', type.name
+    assert_equal 0, type.score
   end
 end
