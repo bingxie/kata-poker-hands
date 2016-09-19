@@ -24,12 +24,5 @@ class Card
       Card.new(c[0], c[1])
     end
   end
-
-  def self.is_straight?(cards)
-    values_str = VALUES.join
-    cards_value_str = (cards.map &:value).join
-    values_str.include? cards_value_str
-  end
-
   # Todo use struct
 end

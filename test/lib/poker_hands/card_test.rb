@@ -23,12 +23,4 @@ class CardTest < Minitest::Test
     assert_equal 'H', cards[0].suit
     assert_equal 'K', cards[4].value
   end
-
-  def test_is_straight?
-    cards = Card.parse_cards('2D 3D 4C 5D 6D')
-    assert Card.is_straight?(cards)
-
-    cards = Card.parse_cards('2D 3D 3C 5D 6D')
-    refute Card.is_straight?(cards)
-  end
 end
