@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class HandType
   include Comparable
 
@@ -27,13 +29,13 @@ class HandType
   # def check_straight
   # end
 
-  def is_straight?
+  def straight?
     values_str = Card::VALUES.join
-    cards_value_str = (@cards.map &:value).join
+    cards_value_str = @cards.map(&:value).join
     values_str.include? cards_value_str
   end
 
-  def is_flush?
+  def flush?
     @cards.all? { |card| card.suit == @cards[0].suit }
   end
 end

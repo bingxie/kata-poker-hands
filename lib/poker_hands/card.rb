@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Card
   include Comparable
 
@@ -11,7 +13,7 @@ class Card
   end
 
   def <=>(other)
-    VALUES.index(self.value) <=> VALUES.index(other.value)
+    VALUES.index(value) <=> VALUES.index(other.value)
   end
 
   def to_s

@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require_relative '../../test_helper'
 
 class HandTypeTest < Minitest::Test
@@ -5,27 +6,27 @@ class HandTypeTest < Minitest::Test
     cards = Card.parse_cards('2D 3D 4C 5D 6D')
     type = HandType.new(cards)
 
-    assert type.is_straight?
+    assert type.straight?
   end
 
   def test_is_not_straight?
     cards = Card.parse_cards('2D 3D 3C 5D 6D')
     type = HandType.new(cards)
 
-    refute type.is_straight?
+    refute type.straight?
   end
 
   def test_is_flush?
     cards = Card.parse_cards('2D 3D 3D 5D 6D')
     type = HandType.new(cards)
 
-    assert type.is_flush?
+    assert type.flush?
   end
 
   def test_is_not_flush?
     cards = Card.parse_cards('2D 3D 3C 5D 6D')
     type = HandType.new(cards)
 
-    refute type.is_flush?
+    refute type.flush?
   end
 end
