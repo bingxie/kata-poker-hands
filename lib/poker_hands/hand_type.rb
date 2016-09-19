@@ -33,6 +33,7 @@ class HandType
     values_str.include? cards_value_str
   end
 
-  # def self.is_flush?(cards)
-  # end
+  def is_flush?
+    @cards.all? { |card| card.suit == @cards[0].suit }
+  end
 end
